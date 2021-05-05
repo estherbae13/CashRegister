@@ -349,6 +349,7 @@ namespace CashRegister
             // 
             this.receipt3Output.BackColor = System.Drawing.Color.White;
             this.receipt3Output.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receipt3Output.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.receipt3Output.Location = new System.Drawing.Point(514, 555);
             this.receipt3Output.Name = "receipt3Output";
             this.receipt3Output.Size = new System.Drawing.Size(552, 160);

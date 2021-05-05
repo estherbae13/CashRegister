@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media; //allows the use of SoundPlayer
+using System.Threading; //allows the use of Thread.Sleep()
 
 namespace CashRegister
 {
@@ -106,35 +107,59 @@ namespace CashRegister
 
         private void receiptButton_Click(object sender, EventArgs e)
         {
-            //show receipt
-            receipt1Output.Text = "           book store";
-            receipt1Output.Text += $"\n\nBooks             x{bookNumber} @ $";
-            receipt1Output.Text += $"\nBookmarks         x{bookmarkNumber} @ $";
-            receipt1Output.Text += $"\nJournals          x{journalNumber} @ $";
-            receipt1Output.Text += $"\n\nSubtotal               $";
-            receipt1Output.Text += $"\nTax                    $";
-            receipt1Output.Text += $"\nTotal                  $";
-            receipt1Output.Text += $"\n\nAmount Paid            $";
-            receipt1Output.Text += $"\nChange                 $";
-
-            receipt2Output.Text = $"\n\n{bookPrice.ToString("0.00")}";
-            receipt2Output.Text += $"\n{bookmarkPrice.ToString("0.00")}";
-            receipt2Output.Text += $"\n{journalPrice.ToString("0.00")}";
-            receipt2Output.Text += $"\n\n{subtotal.ToString("0.00")}";
-            receipt2Output.Text += $"\n{tax.ToString("0.00")}";
-            receipt2Output.Text += $"\n{total.ToString("0.00")}";
-            receipt2Output.Text += $"\n\n{amountPaid.ToString("0.00")}";
-            receipt2Output.Text += $"\n{change.ToString("0.00")}";
-
-            receipt3Output.Text = $"Thank you for your purchase!";
-            receipt3Output.Text += $"\n\nHave a fantastic day! :)";
-
-            //enable new order button
-            resetButton.Enabled = true;
-
             //printing sound
             SoundPlayer alertPlayer = new SoundPlayer(Properties.Resources.printer);
             alertPlayer.Play();
+
+            //show receipt
+            receipt1Output.Text = "           book store";
+            Refresh();
+            Thread.Sleep(300);
+
+            receipt1Output.Text += $"\n\nBooks             x{bookNumber} @ $";
+            receipt2Output.Text = $"\n\n{bookPrice.ToString("0.00")}";
+            Refresh();
+            Thread.Sleep(300);
+
+            receipt1Output.Text += $"\nBookmarks         x{bookmarkNumber} @ $";
+            receipt2Output.Text += $"\n{bookmarkPrice.ToString("0.00")}";
+            Refresh();
+            Thread.Sleep(300);
+
+            receipt1Output.Text += $"\nJournals          x{journalNumber} @ $";
+            receipt2Output.Text += $"\n{journalPrice.ToString("0.00")}";
+            Refresh();
+            Thread.Sleep(300);
+
+            receipt1Output.Text += $"\n\nSubtotal               $";
+            receipt2Output.Text += $"\n\n{subtotal.ToString("0.00")}";
+            Refresh();
+            Thread.Sleep(300);
+
+            receipt1Output.Text += $"\nTax                    $";
+            receipt2Output.Text += $"\n{tax.ToString("0.00")}";
+            Refresh();
+            Thread.Sleep(300);
+
+            receipt1Output.Text += $"\nTotal                  $";
+            receipt2Output.Text += $"\n{total.ToString("0.00")}";
+            Refresh();
+            Thread.Sleep(300);
+
+            receipt1Output.Text += $"\n\nAmount Paid            $";
+            receipt2Output.Text += $"\n\n{amountPaid.ToString("0.00")}";
+            Refresh();
+            Thread.Sleep(300);
+
+            receipt1Output.Text += $"\nChange                 $";
+            receipt2Output.Text += $"\n{change.ToString("0.00")}";
+            Refresh();
+            Thread.Sleep(300);
+
+            receipt3Output.Text = $"Thank you for your purchase!";
+
+            //enable new order button
+            resetButton.Enabled = true;
         }
 
         private void resetButton_Click(object sender, EventArgs e)
@@ -149,6 +174,8 @@ namespace CashRegister
             changeOutput.Text = "";
             paidInput.Text = "";
             receipt1Output.Text = "";
+            receipt2Output.Text = "";
+            receipt3Output.Text = "";
 
             //play clearing sound
             SoundPlayer alertPlayer = new SoundPlayer(Properties.Resources.clear);
