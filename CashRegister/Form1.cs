@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * author: Esther Bae
+ * purpose: create a program that can calculate prices and print receipts.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -97,7 +102,7 @@ namespace CashRegister
             }
             catch
             {
-                receipt1Output.Text = "Please enter a numerical value";
+                receipt1Output.Text = "Please enter a numerical value.";
 
                 //error sound
                 SoundPlayer alertPlayer = new SoundPlayer(Properties.Resources.error);
@@ -110,6 +115,13 @@ namespace CashRegister
             //printing sound
             SoundPlayer alertPlayer = new SoundPlayer(Properties.Resources.printer);
             alertPlayer.Play();
+
+            //disable buttons
+            calculatetotalButton.Enabled = false;
+            changeButton.Enabled = false;
+            receiptButton.Enabled = false;
+            resetButton.Enabled = false;
+            paidInput.Enabled = false;
 
             //show receipt
             receipt1Output.Text = "           book store";
@@ -164,7 +176,22 @@ namespace CashRegister
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            //clear everything
+            //enable calculate total button
+            calculatetotalButton.Enabled = true;
+
+            //clear everything + make values zero
+            booksInput.Text = "0";
+            bookmarksInput.Text = "0";
+            journalsInput.Text = "0";
+            subtotalOutput.Text = "0";
+            taxOutput.Text = "0";
+            totalOutput.Text = "0";
+            changeOutput.Text = "0";
+            paidInput.Text = "0";
+            receipt1Output.Text = "0";
+            receipt2Output.Text = "0";
+            receipt3Output.Text = "0";
+
             booksInput.Text = "";
             bookmarksInput.Text = "";
             journalsInput.Text = "";
