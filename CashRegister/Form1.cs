@@ -179,19 +179,7 @@ namespace CashRegister
             //enable calculate total button
             calculatetotalButton.Enabled = true;
 
-            //clear everything + make values zero
-            booksInput.Text = "0";
-            bookmarksInput.Text = "0";
-            journalsInput.Text = "0";
-            subtotalOutput.Text = "0";
-            taxOutput.Text = "0";
-            totalOutput.Text = "0";
-            changeOutput.Text = "0";
-            paidInput.Text = "0";
-            receipt1Output.Text = "0";
-            receipt2Output.Text = "0";
-            receipt3Output.Text = "0";
-
+            //clear everything
             booksInput.Text = "";
             bookmarksInput.Text = "";
             journalsInput.Text = "";
