@@ -180,6 +180,20 @@ namespace CashRegister
             calculatetotalButton.Enabled = true;
 
             //clear everything
+            bookNumber = 0;
+            bookPrice = 0;
+            bookmarkPrice = 0;
+            journalPrice = 0;
+            bookNumber = 0;
+            bookmarkNumber = 0;
+            journalNumber = 0;
+            subtotal = 0;
+            taxrate = 0;
+            tax = 0;
+            total = 0;
+            amountPaid = 0;
+            change = 0;
+
             booksInput.Text = "";
             bookmarksInput.Text = "";
             journalsInput.Text = "";
